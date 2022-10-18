@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>No SPA Framework Necessary</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/league.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<style>
+			img {
+				border-radius: 35px;
+				box-shadow: 6px 20px 25px #FFFFFF;
+			}
+			.container{
+					display: flex;
+			}
+			.col{
+					flex: 1;
+			}
+
+			h2 small.cont {
+				font-size: .5em;
+				vertical-align: baseline;
+			}
+
+			ul li {
+				font-size: smaller;
+			}
+			ul.no-bullets {
+				list-style: none;
+			}
+
+			.text-bold {
+				font-weight: bold;
+				color: #f0db4f;
+			}
+
+			.pad-top {
+				padding-top: 40px;
+			}
+
+			.fa-css3, .fa-html5, .fa-js {
+				font-size: 2em;
+				font-weight: bold;
+				padding: 5px 0;
+			}
+			.fa-css3 {
+				color: #006eba;
+			}
+			.fa-html5 {
+				color: #e44c25;
+			}
+			.fa-js {
+				color: #f0db4f;
+			}
+
+			.fa-angular, .fa-react, .fa-vuejs {
+				font-size: 2em;
+			}
+			.fa-angular {
+				color: #b52e31;
+			}
+			.fa-react {
+				color: #61dbfb;
+			}
+			.fa-vuejs {
+				color: #42b883;
+			}
+		</style>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1 class="r-fit-text">No SPA Framework Necessary</h1>
+					<small>&copy; 2022 - A GitFetchVictor Production</small>
+				</section>
+				<section>
+					<h2>Victor J. Pudelski</h2>
+					<h5>
+						V.P. of Development - ZubiSoft, LLC <br />
+						Founder/Developer - Next Link Software, LLC
+					</h5>
+					<div class="container">
+						<div class="col">
+							<ul>
+								<li>Developer since 1999</li>
+								<li>Worked with AngularJS, Vue, jQuery, Bootstrap</li>
+								<li>Played with React, Knockout</li>
+							</ul>
+							<p>A couple fun facts</p>
+							<ul>
+								<li>I live near Cleveland, OH</li>
+								<li>I still call them the Indians!</li>
+								<li>I coach HS Girls Softball</li>
+							</ul>
+						</div>
+						<div class="col">
+							<img src="./images/photo.png" />
+						</div>
+					</div>
+				</section>
+				<section>
+					<h2>Description</h2>
+					<small>
+						<p>
+							With the recent updates to HTML/CSS/Javascript we can replicate much of the 
+							functionality of our favorite framework without having to install the framework, 
+							dependencies and then manage the versions. Instead we can write vanilla JS code 
+							coupled with HTML & CSS and get the same effect as we did with those frameworks. 
+							This session will look at using just HTML, CSS and Javascript to create a simple 
+							multi-view SPA application. In building the application we will take a close look 
+							at building a router, creating a reusable site structure and how to create multiple 
+							views. By the end you will have all the tools to create your own framework or perhaps 
+							just understand some of the inner workings of the one(s) you use.
+						</p>
+					</small>
+				</section>
+				<section>
+					<h2>Translation</h2>
+					<small>
+						<p>
+							We are going to create our own SPA Framework using:
+						</p>
+						<ul>
+							<li class="fragment" data-autoslide="1000"><span class="fab fa-html5"> HTML</span></li>
+							<li class="fragment" data-autoslide="1000"><span class="fab fa-css3"> CSS</span></li>
+							<li class="fragment"><span class="fab fa-js"> Javascript</span></li>
+						</ul>
+					</small>
+				</section>
+				<section>
+					<h2>What Frameworks am I referring?...</h2>
+					<div class="container">
+						<div class="col fragment" data-autoslide="1000">
+							<p>Angular</p>
+							<span class="fab fa-angular"></span>
+						</div>
+						<div class="col fragment" data-autoslide="1000">
+							<p>React</p>
+							<span class="fab fa-react"></span>
+						</div>
+						<div class="col fragment" data-autoslide="1000">
+							<p>Vue</p>
+							<span class="fab fa-vuejs"></span>
+						</div>
+					</div>
+					<div class="pad-top fragment">
+						<h3>Of Course...</h3>
+					</div>
+				</section>
+				<section>
+					Why wouldn't you use one of the frameworks previously listed?...
+				</section>
+				<section>
+					<h2>What's my reason...</h2>
+					<p>
+						Basically, another developer challanged me to use only ES6 and reduce the 
+						number of dependencies and outside libraries that we could easily
+						replicate in little code using straight JS.
+					</p>
+					<small>
+						<p>
+							The results were quite cool... The code was super maintainable...
+						</p>
+					</small>
+				</section>
+				<section>
+					<h2>Agenda</h2>
+					<ul>
+						<li>Routing</li>
+						<li>Classes</li>
+						<li>Web Components</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Getting Started</h2>
+					<ul class="no-bullets">
+						<li><span class="fa fa-file"> index.html</span> - main page / master layout</li>
+						<li><span class="fa fa-folder"> components</span> - reusable components / custom elements</li>
+						<li><span class="fa fa-folder"> pages</span> - views or pages we can visit</li>
+						<li><span class="fa fa-folder"> scripts</span> - scripts and utilities providing functionality</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Let's jump into some code...</h2>
+				</section>
+				<section data-auto-animate>
+					<h2>Let's talk paths</h2>
+					<ul class="no-bullets">
+						<li>http://server/path/page.html</li>
+						<li>http://server/path/api/controller/method/</li>
+						<li>http://server/path/#/path/</li>
+					</ul>
+				</section>
+				<section data-auto-animate="">
+					<h2>Let's talk paths</h2>
+					<ul class="no-bullets">
+						<li>http://server/path/page.html</li>
+						<li>http://server/path/api/controller/method/</li>
+						<li class="text-bold">http://server/path/#/path/</li>
+						<li class="text-bold">http://server/path/#/path/:param/</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Pages</h2>
+					<p>Recall this code</p>
+					<pre>
+						<code data-trim data-noescape>
+							this.rootElem.innerHTML = nav.route.component.render(nav.params);
+							nav.route.component.init();
+						</code>
+					</pre>
+					<small>Note: <span class="text-bold">nav.route</span> refers to a route from our <em>route.js</em> file</small>
+				</section>
+				<section>
+					<h2>Pages <small class="cont">(cont.)</small></h2>
+					<p>Based on the previous code our route component needs to have two methods</p>
+					<ul class="no-bullets">
+						<li>render(params);</li>
+						<li>init();</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Components</h2>
+					<p>Why would you create a component?</p>
+					<ul>
+						<li class="fragment">Reusability</li>
+						<li class="fragment">Maintenance</li>
+						<li class="fragment">Encapsulation</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Components <small class="cont">(cont.)</small></h2>
+					<p>Creating Components</p>
+					<ul>
+						<li>Inherits from HTMLElement - hence the custom tag</li>
+						<li>Constructor connects us to ShadowDOM</li>
+						<li>connectedCallback() - added to DOM</li>
+						<li>attributeChangedCallback(name, oldValue, newValue)</li>
+						<li>observedAttributes</li>
+						<li>disconnectedCallback - removed from DOM</li>
+						<li>adoptedCallback - moved to a new document (IFRAMES)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Components <small class="cont">(cont.)</small></h2>
+					<p>Attributes</p>
+					<pre>
+						<code data-trim data-noescape>
+							static get observedAttributes() {
+								return ['myAttribute'];
+							}
+							
+							get myAttribute() {
+								return this.getAttribute('myAttribute');
+							}
+						
+							set myAttribute(value) {
+								this.setAttribute('myAttribute', value);
+							}								
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Components <small class="cont">(cont.)</small></h2>
+					<small>To render the HTML we can use a similar approach to our pages.</small>
+					<pre>
+						<code data-trim data-noescape>
+							const html_myComponent = () => `
+							<div>My HTML HERE</div>
+							`;
+
+							class MyComponent extends HTMLElement {
+								constructor() {
+									super();
+									this.attachShadow({mode: 'open'});
+									this.shadowRoot.innerHTML = html_myComponent();
+
+									,,,
+								}
+
+								...
+							}
+							customElements.define('myComponent', MyComponent);
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Extending Components</h2>
+					<ul>
+						<li>Add Events</li>
+						<li>Add Styles | Themes</li>
+						<li>Add Authentication</li>
+					</ul>
+					<p><small>The possibilities are endless...</small></p>
+				</section>
+				<section>
+					<h1>THANK YOU!</h1>
+					<h2>Any Questions?</h2>
+					<hr/>
+					<h4>Victor J. Pudelski</h4>
+					<small>
+						<span class="fa fa-envelope"> vjpudelski@gmail.com</span><br />
+						<span class="fab fa-twitter"> @vjpudelski</span><br />
+						<span class="fa fa-globe"> gitfetchvictor.com</span>
+					</small>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
