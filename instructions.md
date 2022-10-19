@@ -4,7 +4,9 @@ This document will walk through the steps to create and execute the lab performe
 
 ## Setup
 
-1. Create a Folder for your project and include an index.html file and folders for scripts, components and pages
+1. Create a Folder for your project and include:
+- index.html file
+- folders for scripts, components and pages
 
 2. Open the index.html file and insert the following starter code:
 
